@@ -1,4 +1,4 @@
-const API_BASE = "https://satquery-ai-backend-cl3d.onrender.com";
+const API_BASE = "http://localhost:8001";
 
 // ---------------- state ----------------
 let currentMode = "single";
@@ -443,3 +443,25 @@ resetBtn.addEventListener("click", () => {
 // ---------------- init ----------------
 renderSlots();
 renderExamples();
+document.addEventListener("DOMContentLoaded", () => {
+
+    const landingPage = document.getElementById("landing-page");
+    const startButton = document.getElementById("start-btn");
+    const appShell = document.getElementById("app-shell");
+
+    if (!landingPage || !startButton || !appShell) {
+        return;
+    }
+
+    startButton.addEventListener("click", () => {
+
+        landingPage.classList.add("landing-hidden");
+
+        setTimeout(() => {
+            appShell.classList.add("active");
+            landingPage.style.display = "none";
+        }, 550);
+
+    });
+
+});
